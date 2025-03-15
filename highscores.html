@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="highscores.css">
+    <title>High Scores</title>
+</head>
+<body>
+    <div class="container">
+        <div id="highScore" class="flex-center flex-column">
+            <h2>Top 5 High scores</h2>
+            <ul>
+                <li class="highScore label">
+                    <span class="hsName">Name</span><span class="hsScore">Score</span><span class="hsDate">Date</span>
+                </li>
+                <!-- High scores will be dynamically added here -->
+                 <div id="highScoreList" class="highScoreList"></div>
+            </ul>
+            <a href="/index.html" class="button">Home</a>
+        </div>
+    </div>
+    <script src="highscores.js"></script>
+</body>
+</html>

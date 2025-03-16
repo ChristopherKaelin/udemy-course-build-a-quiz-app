@@ -18,6 +18,8 @@ usernameInput.addEventListener('keyup', () => {
 saveHighScore = (e) => {
     e.preventDefault();
 
+    alert('Scores are saved locally only.');
+
     const score = {
         name: usernameInput.value,
         score: finalScore,
@@ -28,6 +30,6 @@ saveHighScore = (e) => {
     highScores.splice(MAX_HIGH_SCORES);
 
     localStorage.setItem('highScores', JSON.stringify(highScores)); 
-    window.location.assign("/");  // Redirect to highscores page
+    window.location.assign("index.html");  // Redirect to highscores page
 
 }

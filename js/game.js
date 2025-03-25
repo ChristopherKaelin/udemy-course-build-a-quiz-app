@@ -12,8 +12,15 @@ let numCorrect = 0;
 let questionCounter = 0;
 let availableQuesions = [];
 
+const CORRECT_BONUS = 1;
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const numQuestions = parseInt(urlParams.get('numQuestions'));
+const NUM_QUESTIONS =  numQuestions || 10;
+
 let questions = [];
-fetch("https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple")
+fetch("https://opentdb.com/api.php?amount="+NUM_QUESTIONS+"&difficulty=easy&type=multiple")
     .then((res) => {
         return res.json();
     })
@@ -38,13 +45,6 @@ fetch("https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=mu
         console.error("Error loading questions: ", error);
     });
 
-//CONSTANTS
-const CORRECT_BONUS = 1;
-
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const numQuestions = parseInt(urlParams.get('numQuestions'));
-const NUM_QUESTIONS =  numQuestions || 10;
 
 startGame = () => {
   questionCounter = 0;
@@ -54,6 +54,7 @@ startGame = () => {
   loaderElement.classList.add("hidden");  //  Hide loader
   gameElement.classList.remove("hidden");     //  Show game
 };
+
 
 
 getNewQuestion = () => {

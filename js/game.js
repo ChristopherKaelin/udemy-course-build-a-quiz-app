@@ -1,14 +1,14 @@
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const questionCounterText = document.getElementById("questionCounter");
-const scoreText = document.getElementById("score");
+const numCorrectText = document.getElementById("numCorrect");
 const progressBar = document.getElementById("progressBar");
 const loaderElement = document.getElementById("loader");
 const gameElement = document.getElementById("game");
 
 let currentQuestion = {};
 let acceptingAnswers = false;
-let score = 0;
+let numCorrect = 0;
 let questionCounter = 0;
 let availableQuesions = [];
 
@@ -38,43 +38,49 @@ fetch("https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=mu
         console.error("Error loading questions: ", error);
     });
 
-
 //CONSTANTS
-const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 10;
+const CORRECT_BONUS = 1;
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const numQuestions = parseInt(urlParams.get('numQuestions'));
+const NUM_QUESTIONS =  numQuestions || 10;
 
 startGame = () => {
   questionCounter = 0;
-  score = 0;
+  numCorrect = 0;
   availableQuesions = [...questions];
   getNewQuestion();
   loaderElement.classList.add("hidden");  //  Hide loader
   gameElement.classList.remove("hidden");     //  Show game
 };
 
+
 getNewQuestion = () => {
-  if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-    localStorage.setItem('finalScore', score);
+  if (availableQuesions.length === 0 || questionCounter >= NUM_QUESTIONS) {
+    let finalPercent =  ((numCorrect/NUM_QUESTIONS) * 100).toFixed(1);
+    localStorage.setItem('finalPercent', (finalPercent));
     //go to the end page
     return window.location.assign("end.html");
   }
   questionCounter++;
-  questionCounterText.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
-  questionProgress = questionCounter/MAX_QUESTIONS;
+  questionCounterText.innerText = `${questionCounter}/${NUM_QUESTIONS}`;
+  questionProgress = questionCounter/NUM_QUESTIONS;
   progressBar.style.width = `${questionProgress*100}%`;
   
   const questionIndex = Math.floor(Math.random() * availableQuesions.length);
   currentQuestion = availableQuesions[questionIndex];
-  question.innerText = currentQuestion.question;
+  question.innerHTML = currentQuestion.question;
 
   choices.forEach(choice => {
-    const number = choice.dataset["number"];
-    choice.innerText = currentQuestion["choice" + number];
+    const number = parseInt(choice.dataset["number"])-10;
+    choice.innerHTML = currentQuestion["choice" + number];
   });
 
   availableQuesions.splice(questionIndex, 1);
   acceptingAnswers = true;
 };
+
 
 choices.forEach(choice => {
   choice.addEventListener("click", e => {
@@ -82,25 +88,36 @@ choices.forEach(choice => {
 
     acceptingAnswers = false;
     const selectedChoice = e.target;
-    const selectedAnswer = selectedChoice.dataset["number"];
+    const selectedAnswer = parseInt(selectedChoice.dataset["number"]);
+
+    const correctAnswer = parseInt(currentQuestion.answer);
+    const correctElement = document.querySelector('[data-number="'+(correctAnswer+10)+'"]');
+
+    // alert("Pick: " + selectedAnswer + " || " + "Correct: " + correctAnswer);
 
     const classToApply =
-      selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
-
+      (selectedAnswer-10) == currentQuestion.answer ? "correct" : "incorrect";
+    
     if (classToApply === "correct") {
-      incrementScore(CORRECT_BONUS);
+      incrementCorrect(CORRECT_BONUS);
+    }  else {
+      setTimeout(() => {
+        correctElement.classList.add("correct-light");
+      }, 500);  
     }
 
     selectedChoice.parentElement.classList.add(classToApply);
-
+    
     setTimeout(() => {
       selectedChoice.parentElement.classList.remove(classToApply);
+      correctElement.classList.remove("correct-light");
       getNewQuestion();
     }, 1000);
   });
 });
 
-incrementScore = num => {
-  score += num;
-  scoreText.innerText = score;
+
+incrementCorrect = num => {
+  numCorrect += num;
+  numCorrectText.innerText = numCorrect;
 };

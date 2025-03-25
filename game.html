@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Quick Quiz - Play</title>
-    <link rel="stylesheet" href="app.css" />
-    <link rel="stylesheet" href="game.css" />
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" href="/css/game.css" />
   </head>
   <body>
     <div class="container">
@@ -26,32 +27,39 @@
           </div>
           <div class="scoreHeader">
             <p>
-              Score: 
-              <span id="score">0</span>
+              # Correct: 
+              <span id="numCorrect">0</span>
             </p>
           </div>
         </header>
         <div class="question">
           <h3 id="question"></h3>
         </div>
-        <div class="choice-container">
+        <div class="choice-container" data-number="1">
           <p class="choice-prefix">A</p>
-          <p class="choice-text" data-number="1"></p>
+          <p class="choice-text" data-number="11"></p>
         </div>
-        <div class="choice-container">
+        <div class="choice-container" data-number="2">
           <p class="choice-prefix">B</p>
-          <p class="choice-text" data-number="2"></p>
+          <p class="choice-text" data-number="12"></p>
         </div>
-        <div class="choice-container">
+        <div class="choice-container" data-number="3">
           <p class="choice-prefix">C</p>
-          <p class="choice-text" data-number="3"></p>
+          <p class="choice-text" data-number="13"></p>
         </div>
-        <div class="choice-container">
+        <div class="choice-container" data-number="4">
           <p class="choice-prefix">D</p>
-          <p class="choice-text" data-number="4"></p>
+          <p class="choice-text" data-number="14"></p>
         </div>
-      </div>
+        <separator></separator>
+        <div class="navigation">
+          <a href="index.html" class="button">Quiz Home</a>
+          <a href="" class="button"  onclick="location.reload();">
+            Start Over
+          </a>
+        </div>
+        </div>
     </div>
-    <script src="game.js"></script>
+    <script src="/js/game.js"></script>
   </body>
 </html>

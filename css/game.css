@@ -8,12 +8,12 @@ header {
 .progress-bar-full {
     width: 30rem;
     height: 2rem;   
-    border: 0.3rem solid #56a5eb;
+    border: 0.3rem solid rgb(var(--base-color));
     margin-left: 1rem;
 }
 
 .progress-bar {
-    background-color: #56a5eb;
+    background-color: rgb(var(--base-color));
     height: 100%;
     width: 0%;    
 }
@@ -34,7 +34,7 @@ header {
     margin-bottom: 0.75rem; 
     width: 95%;
     font-size: 1.8rem;
-    border: 0.1rem solid #56a5eb66;
+    border: 0.1rem solid rgb(var(--main-color));
     background-color: white;
 }
 .choice-container:hover {
@@ -47,8 +47,8 @@ header {
 
 .choice-prefix {
     padding: 1rem;
-     columns: white;
-     background-color: #56a5eb;
+    color: white;
+    background-color: rgb(var(--main-color));;
 }
 
 .choice-text {
@@ -56,11 +56,13 @@ header {
     width: 100%;
 }
 
-.correct {
+.correct, .correct-light {
     background-color: #28a745;
     font-weight: bold;   
 }
-
+.correct-light{
+    opacity: 0.5;
+}
 .incorrect {
     background-color: #dc3545;
     font-weight: bold;

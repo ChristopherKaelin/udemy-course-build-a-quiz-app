@@ -1,6 +1,9 @@
 :root {
-    background-color: #ecf5ff;
+    --background-color: 242, 239, 218;
+    --main-color: 30, 58, 138;
+    background-color: rgb(var(--background-color));
     font-size: 12px;
+    color: rgb(var(--main-color));
 }
 
 *{
@@ -8,12 +11,12 @@
     font-family: Arial, Helvetica, sans-serif;
     margin: 0px;
     padding: 0px;
-    color: #666
+    color: rgb(var(--main-color));
 }
 
 h1, h2, h3, h4 {
     margin: 1rem 0;
-    color: #56a5eb;
+    color: rgb(var(--main-color));
 }
 
 h1 { 
@@ -37,31 +40,39 @@ h3 {
 
 h4 {
     font-size: 1.8rem;
+    line-height: 2.2rem;
     font-weight: 500;
 }
 
 h4 > ul > li{
     line-height: 2.2rem;
     margin-left: 40px;
-    color: #56a5eb;
+    color: rgb(var(--main-color));
 }
 h4 > ul > li:first-of-type {
     margin-top: 10px;
 }
-
+.sub{
+    margin-left: 40px;
+}
+.circle {
+    margin-left: 20px;
+    list-style-type: circle;
+}
 .navigation {
-    margin: 1.5rem 0;
+    margin: 2.5rem 0;
+    border-top: 3px;
 }
 
 /*  UTILITIES */
 
 .container {
-    width: 100vw;
+    width: 60vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: start;
-    max-width: 80rem;
+    max-width: 80vw;
     margin: 0 auto;
     padding: 2rem;
 }
@@ -92,6 +103,18 @@ h4 > ul > li:first-of-type {
     display: none;
 }
 
+separator {
+    width: 60vw;
+    margin: 1rem 0;
+    border-bottom: 3px double blue;
+}
+
+.fas, .fa-solid {
+    color: rgb(var(--main-color));
+    margin-right: 10px;
+    font-size: 80%;
+}
+
 /*  BUTTONS */
 .button{
     font-size: 1.8rem;
@@ -99,9 +122,9 @@ h4 > ul > li:first-of-type {
     margin: 1rem;
     width: 20rem;
     text-align: center;
-    border: 0.1rem solid #56a5eb;
+    border: 0.1rem solid rgb(var(--main-color));;
     text-decoration: none;
-    color: #56a5eb;
+    color: rgb(var(--main-color));
     background-color: white;
 }
 
@@ -119,7 +142,7 @@ h4 > ul > li:first-of-type {
     transform: none;
 }
 
-/*  FORMS */
+/*  FORMS   ==========*/
 form {
     width: 100%;
     display: flex;
@@ -134,9 +157,38 @@ input {
     font-size: 1.8rem;
     border: none;
     box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(86, 185, 235, 0.5) ;
+}
+
+input.numQuestions {
+    width: 7rem;
+    padding: 1rem;
 } 
 
 input::placeholder {
     opacity: 0.33;
     color: blue !important;
 }
+label {
+    font-size: 2.5rem;
+}
+
+/*  VERSION LIST    ==========*/
+.version {
+    width: 60vw;
+    text-align: left;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+.old * {
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+}
+.current * {
+    color: rgb(30, 138, 58)
+}
+.next * {
+    color: rgb(138, 58, 58)
+    /* color: rgb(128, 0, 0); */
+}
+

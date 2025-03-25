@@ -1,14 +1,14 @@
 const usernameInput = document.getElementById('usernameInput');
 const saveScoreButton = document.getElementById('saveScoreButton');
-const finalScoreText = document.getElementById('finalScoreText');
+const finalPercentText = document.getElementById('finalPercentText');
 
-const finalScore = localStorage.getItem('finalScore'); 
+const finalPercent = localStorage.getItem('finalPercent'); 
 const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
 const MAX_HIGH_SCORES=5;
 
-if (finalScore) {
-    finalScoreText.innerText = `Final Score: ${finalScore}`;
+if (finalPercent) {
+    finalPercentText.innerText = `Final Percent: ${finalPercent}%`;
 }
 
 usernameInput.addEventListener('keyup', () => {
@@ -22,7 +22,7 @@ saveHighScore = (e) => {
 
     const score = {
         name: usernameInput.value,
-        score: finalScore,
+        score: finalPercent,
         date:  new Date().toISOString().split('T')[0]
     }
     highScores.push(score);
@@ -30,6 +30,6 @@ saveHighScore = (e) => {
     highScores.splice(MAX_HIGH_SCORES);
 
     localStorage.setItem('highScores', JSON.stringify(highScores)); 
-    window.location.assign("index.html");  // Redirect to highscores page
+    window.location.assign("highscores.html");  // Redirect to highscores page
 
 }

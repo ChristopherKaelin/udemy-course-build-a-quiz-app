@@ -3,38 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FONT AWESOME  -->
+    <link rel="stylesheet" href="/assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="/assets/css/brands.css"  />
+    <link rel="stylesheet" href="/assets/css/solid.css" />
+    
+    <!-- CSS FILES  -->
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/app.css">
+    
     <title>A Quiz App - Udemy Tutorial</title>
-    <link rel="stylesheet" href="app.css">
+
 </head>
 <body>
     <div class="container">
         <div id="home" class="flex-center flex-column">
             <h1>EagleUK Quiz App</h1>
-            <h3> V1.1 </h3>
-            <h4>March 16th, 2025 </h4>
+            <separator></separator>
             <div class="navigation">
-                <a href="game.html" class="button">Play Game</a>
-                <a href="highscores.html" class="button">High Scores</a>    
+                
+                    <label for="numQuestions">Questions: </label>
+                    <input type="number" class="numQuestions" name="numQuestions" id="numQuestions" min="10" max="25" value="10">
+                
+                <a href="" class="button" onclick="this.href='game.html?numQuestions='+document.getElementById('numQuestions').value">
+                    Play Game
+                </a>
+                <a href="highscores.html" class="button">High Scores</a>
             </div>
-            <h4>
-                I started this by going through the Udemy course titled 
-                "Build a Quiz App with HTML, CSS, and JavaScript", making 
-                some small modifications along the way. The  course is 
-                free and offers a lot of great resources for learning how
-                to build web apps. I highly recommend checking it out!  Enjoy!
-            </h4>
-            <h4>
-                I want  to make some changes over the next 7 - 10 days and update 
-                to version 2.0 no later than Sunday, March 30th.
-                <ul>
-                    <li>Update the color scheme.</li>
-                    <li>Update to show the correct answer when incorrect is selected.</li>
-                    <li>Add ability to select the number of questions in the quiz, minumum of 10</li>
-                    <li>Update the leaderboard to display precentage of correct answers</li>
-                    <li>Add ability to select the difficulty level, easy, medium, hard</li>
-                    <li>Update leaderboard to show top scores by difficulty</li>
-                </ul>
-            </h4>
+            <separator></separator>
+            <div class="version next" id="v3">
+                <div>
+                    <h4 class="ver-info">
+                        <div><i class="fas fa-code-merge"></i>v3.0</div>
+                        <div><i class="fas fa-calendar-days"></i>April 2nd, 2025</div>
+                    </h4>
+                </div>
+                <div>
+                    <h4>
+                        Changes that will be included in release v3.0
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-calendar"></i>
+                                Add ability to select the difficulty level, easy, medium, hard
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-calendar"></i>
+                                Update leaderboard to show top scores by difficulty
+                            </li>
+                        </ul>
+                    </h4>                            
+                </div>
+            </div>
+            <separator></separator>
+            <div class="version current" id="v2">
+                <div>
+                    <h4 class="ver-info">
+                        <div><i class="fas fa-code-merge"></i>v2.0</div>
+                        <div><i class="fas fa-calendar-days"></i> March 25th, 2025</div>
+                    </h4>
+                </div>
+                <div>
+                    <h4>
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-calendar"></i>
+                                Add ability to select the number of questions in the quiz, minumum of 10
+                            </li>
+                            <li>
+                                <i class="fas fa-user-check"></i>
+                                Add a navigation button to go back to the home page
+                            </li>
+                            <li>
+                                <i class="fas fa-calendar-check"></i>
+                                Update the color scheme to match rest of TKF website
+                            </li>
+                            <li>
+                                <i class="fa fa-calendar-check"></i>
+                                Update to show the correct answer when incorrect is selected.
+                            </li>
+                            <li>
+                                <i class="fas fa-calendar-check"></i>
+                                Update the leaderboard to display precentage of questions correctly answered
+                            </li>
+                            <li>
+                                <i class="fas fa-user-check"></i>
+                                Added the following icons and color coding.
+                                <ul class="sub">
+                                    <li class="circle">Red is the next release</li>
+                                    <li class="circle">Green is the current release </li>
+                                    <li class="circle">Blue and small font is previous release(s) </li>
+                                    <li><i class="fas fa-calendar"></i>Scheduled updates, checked if completed</li>
+                                    <li><i class="fas fa-user-check"></i>Additional update completed</li>
+                                    <li><i class="fas fa-code-merge"></i>Version number</li>
+                                    <li><i class="fas fa-calendar-days"></i>Release/Projected date</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </h4>                            
+                </div>
+            </div>
+            <separator></separator>
+            <div class="version old" id="v1">
+                <div>
+                    <h4 class="ver-info">
+                        <i class="fas fa-code-merge"></i> v1.0 <br>
+                        <i class="fas fa-calendar-days"></i> March 16th, 2025
+                    </h4>
+                </div>
+                <div>
+                    <h4>
+                        I started this Quiz app by going through the FREE Udemy course titled 
+                        "Build a Quiz App with HTML, CSS, and JavaScript".  Made some small 
+                        modifications along the way. The course offers a lot of great resources 
+                        for learning how to build web apps.
+                    </h4>
+                </div>
+            </div>
+            <separator></separator>
         </div>
     </div>
 </body>

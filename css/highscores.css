@@ -1,0 +1,31 @@
+.highScore {
+    display: grid;
+    grid-template-areas: 'name score date';
+    gap: 25px;
+    font-size: 2.5rem;
+    padding: .5rem ;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #56a5eb;
+}
+    
+.header {
+    font-weight: bold;
+}
+.List {
+    padding-bottom: 1rem;
+    margin-bottom: 5rem;
+ }
+
+
+.hsName {
+    grid-area: name;
+    width: 150px;
+}
+.hsScore {
+    grid-area: score;
+    width: 100px;
+}
+.hsDate {
+    grid-area: date;
+    width: 150px;
+}

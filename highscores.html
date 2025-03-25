@@ -3,24 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="app.css">
-    <link rel="stylesheet" href="highscores.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/highscores.css">
     <title>High Scores</title>
 </head>
-<body>
-    <div class="container">
-        <div id="highScore" class="flex-center flex-column">
-            <h2>Top 5 High scores</h2>
-            <ul>
-                <li class="highScore label">
-                    <span class="hsName">Name</span><span class="hsScore">Score</span><span class="hsDate">Date</span>
-                </li>
-                <!-- High scores will be dynamically added here -->
-                 <div id="highScoreList" class="highScoreList"></div>
-            </ul>
-            <a href="index.html" class="button">Quiz Home</a>
+    <body>
+        <div class="container">
+            <div class="flex-center flex-column">
+                <div id="highScoreTitle">
+                    <h2>Top 5 High scores</h2>
+                </div>
+                <div id="highScoreHeader" class="highScore header">
+                    <div class="hsName">Name</div>
+                    <div class="hsScore">Score</div>
+                    <div class="hsDate">Date</div>
+                </div>
+                <span id="highScoreList">
+                    <!-- High scores will be dynamically added here -->
+                </span>
+                <separator></separator>
+                <div class="navigation">
+                    <a href="game.html" class="button">Play Again</a>
+                    <a href="index.html" class="button">Quiz Home</a>
+                </div>
+            </div>
         </div>
-    </div>
-    <script src="highscores.js"></script>
-</body>
+        <script src="/js/highscores.js"></script>
+    </body>
 </html>

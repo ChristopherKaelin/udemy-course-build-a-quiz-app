@@ -20,7 +20,7 @@ const numQuestions = parseInt(urlParams.get('numQuestions'));
 const NUM_QUESTIONS =  numQuestions || 10;
 
 let questions = [];
-fetch("https://opentdb.com/api.php?amount="+NUM_QUESTIONS+"&difficulty=easy&type=multiple")
+fetch("https://opentdb.com/api.php?amount="+NUM_QUESTIONS+"&category=21&difficulty=easy&type=multiple")
     .then((res) => {
         return res.json();
     })
